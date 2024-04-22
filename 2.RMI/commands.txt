@@ -1,0 +1,60 @@
+
+Terminal 1:
+javac *.java    (1)
+rmiregistry      (2)
+
+now open new terminal:
+Terminal 2:
+java Server   (3)
+
+Terminal 3:
+java Client 127.0.0.1
+
+
+
+
+
+
+
+
+=====================================
+
+1. What is Heterogeneity?
+2. Example of is marshaling and unmarshalling?
+3. Explain RMI with diagram.
+4. What is binding?
+5. What is role of RMI registry? why we start RMI registry first.
+6. What is use of "UnicastRemoteObject","lookup(),rebind().
+7. What is stub and skeleton?
+8. What is difference between Exception and RemoteException
+1. **Heterogeneity**: In the context of distributed systems, heterogeneity refers to the diversity of hardware, software, and network platforms across which communication and interaction occur.
+
+2. **Example of Marshaling and Unmarshaling**: When objects are passed between different address spaces (like between client and server in RMI), marshaling is the process of converting the object from its native representation into a format suitable for transmission, and unmarshaling is the reverse process. For example, when passing parameters or return values between different systems in RMI, marshaling and unmarshaling are performed to ensure compatibility.
+
+3. **RMI with Diagram**: RMI (Remote Method Invocation) allows communication between different Java Virtual Machines (JVMs) using remote method calls. Here's a basic diagram:
+   ```
+   +-------------------------+              +-------------------------+
+   |        Client JVM        | ---- RMI ----|        Server JVM        |
+   +-------------------------+              +-------------------------+
+   |     Remote Interface    |              |         Servant         |
+   +-------------------------+              +-------------------------+
+   |   RMI Stub (Proxy)      |              |    RMI Skeleton         |
+   +-------------------------+              +-------------------------+
+   ```
+
+4. **Binding**: In the context of RMI, binding refers to associating a name with a remote object in the RMI registry, making it available for clients to look up and access.
+
+5. **Role of RMI Registry and Starting it First**: The RMI registry is a simple naming service that binds names to remote objects' references. Starting the RMI registry first allows the server to register its remote objects, making them accessible to clients that wish to use them.
+
+6. **Use of `UnicastRemoteObject`, `lookup()`, `rebind()`**:
+   - `UnicastRemoteObject`: Used to export a remote object for RMI communication.
+   - `lookup()`: Used to look up a remote object by its name in the RMI registry.
+   - `rebind()`: Used to bind or rebind a remote object to a name in the RMI registry.
+
+7. **Stub and Skeleton**:
+   - **Stub**: Stub is a client-side proxy for the remote object. It behaves like the actual object and forwards method invocations to the remote object.
+   - **Skeleton**: Skeleton is a server-side object that dispatches method calls to the actual remote object. It receives method invocations from the stub and routes them to the appropriate method in the remote object.
+
+8. **Difference between Exception and RemoteException**:
+   - **Exception**: Represents any exceptional condition or error that occurs during the execution of a program. It can be thrown and caught within the same JVM.
+   - **RemoteException**: Represents an exception that occurs during a remote method invocation in RMI. It is specifically used to handle errors related to remote method calls across different JVMs.

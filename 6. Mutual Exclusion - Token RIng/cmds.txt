@@ -1,0 +1,24 @@
+javac tokenring.java
+java tokenring
+=============================
+1. What is race condition?
+2. What is deadlock and starvation?
+3. What is Mutual Exclusion?
+4. How to avoid mutual exclusion using
+
+
+1. **Race Condition**: A race condition occurs in concurrent programming when the outcome of a program depends on the sequence or timing of uncontrollable events. It arises when multiple threads or processes access shared resources or variables concurrently, and the final outcome depends on the order of execution, leading to unpredictable behavior.
+
+2. **Deadlock and Starvation**:
+   - **Deadlock**: Deadlock is a situation in which two or more processes or threads are unable to proceed because each is waiting for the other to release a resource. This can occur when multiple processes hold resources and wait for resources held by other processes, creating a cycle of dependencies that prevents progress.
+   - **Starvation**: Starvation occurs when a process is perpetually denied access to a resource it needs to execute, often due to scheduling algorithms favoring other processes. This can result in the process being unable to progress indefinitely.
+
+3. **Mutual Exclusion**:
+   - Mutual Exclusion is a fundamental concept in concurrent programming that ensures that only one process or thread can access a shared resource or critical section at a time.
+   - It prevents concurrent access to shared resources, which helps maintain consistency and prevents data corruption.
+
+4. **Avoiding Mutual Exclusion**:
+   - **Locks**: Use locks or synchronization mechanisms to control access to shared resources. Only one thread can acquire the lock at a time, ensuring mutual exclusion.
+   - **Atomic Operations**: Utilize atomic operations provided by programming languages or libraries to perform operations on shared variables in a single, indivisible step, eliminating the need for explicit locking.
+   - **Immutable Data**: Design data structures to be immutable or thread-safe, reducing the need for mutual exclusion by ensuring that data cannot be modified once created.
+   - **Message Passing**: Use message passing and communication channels to transfer data between processes or threads without sharing mutable state, thereby avoiding the need for mutual exclusion.

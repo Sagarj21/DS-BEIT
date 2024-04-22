@@ -1,0 +1,49 @@
+javac Bully.java
+java Bully
+javac Ring.java
+java Ring
+
+
+==============================
+User
+1. Who is process coordinator? What are its responsibilities?
+2. Need of Election Algorithm?
+3. What is centralized and decentralized algorithm?
+4. Explain Election working of algorithm for Ring & Bully?
+5. What is ‘Token’?
+6. Why algorithm is known as “Bully”
+
+1. **Process Coordinator**: In distributed systems, the process coordinator is a node responsible for coordinating and managing certain tasks or resources within the system. Its responsibilities may include:
+   - Orchestrating the execution of distributed algorithms.
+   - Managing access to shared resources.
+   - Serving as a point of contact for other nodes.
+   - Monitoring the health and status of other nodes.
+   - Initiating or overseeing distributed computations or transactions.
+
+2. **Need of Election Algorithm**: In a distributed system, it's essential to have a mechanism for electing a leader or coordinator node, especially in cases where:
+   - The system requires a single point of coordination or decision-making.
+   - Nodes need to know who to communicate with for certain tasks or queries.
+   - The system needs to recover from failures by replacing failed coordinators with new ones.
+
+3. **Centralized vs. Decentralized Algorithms**:
+   - **Centralized Algorithm**: In a centralized algorithm, a single node or central authority makes decisions or coordinates activities for the entire system. This approach can be efficient but can also become a bottleneck and point of failure.
+   - **Decentralized Algorithm**: Decentralized algorithms distribute decision-making and coordination among multiple nodes in the system. This approach can be more resilient and scalable but may require more communication overhead and coordination among nodes.
+
+4. **Election Algorithm Working**:
+   - **Ring Algorithm**: In the Ring algorithm, nodes are arranged in a logical ring, and the election message circulates through the ring in a predefined order. Each node compares its own ID with the ID in the election message and forwards the message to the next node until it reaches the highest ID node, which becomes the leader.
+   - **Bully Algorithm**: In the Bully algorithm, each node monitors the availability of other nodes. If a node detects that the coordinator has failed, it initiates an election by sending election messages to all higher-ranked nodes. If no higher-ranked nodes respond, the initiating node becomes the new coordinator; otherwise, the highest-ranked responding node becomes the coordinator.
+
+5. **Token**: In distributed systems, a token is a special message or token object passed between nodes to control access to shared resources, coordinate processes, or enforce mutual exclusion. Only the node holding the token has the right to perform certain actions or access specific resources.
+
+6. **"Bully" Algorithm Name**: The Bully algorithm is named so because of its aggressive nature in initiating elections. When a node detects the failure of the coordinator, it "bullies" its way to becoming the new coordinator by challenging higher-ranked nodes. This aggressive behavior is reminiscent of a bully asserting dominance in a group.
+
+
+
+
+
+Ring Algorithm: This algorithm is used for leader election in a distributed system where processes are arranged in a logical ring. Each process sends an election message to the next process in the ring until the process with the highest ID becomes the leader.
+
+Process State: Each process has a state attribute indicating whether it is active or inactive. This state changes during the election process based on whether a process is participating in the election or not.
+
+User Input: The program takes user input to determine the number of processes, their IDs, and other actions like starting an election or quitting the program.
+===================================

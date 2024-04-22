@@ -1,0 +1,79 @@
+
+Terminal:
+set MPJ_HOME=C:\mpj-v0_44
+set PATH=%MPJ_HOME%\bin;%PATH%
+javac -cp %MPJ_HOME%\lib\mpj.jar ArrSum.java
+%MPJ_HOME%\bin\mpjrun.bat -np 4 ArrSum
+
+
+
+
+
+===========================
+Import Statements:
+import mpi.*: Imports the MPI classes necessary for MPI programming.
+import java.util.Scanner: Imports the Scanner class for user input.
+Main Method:
+The main method is the entry point of the program.
+MPI Initialization and Finalization:
+MPI.Init(args): Initializes MPI with command line arguments.
+MPI.Finalize(): Finalizes MPI at the end of the program.
+Rank and Size:
+int rank = MPI.COMM_WORLD.Rank(): Gets the rank (identifier) of the current process.
+int size = MPI.COMM_WORLD.Size(): Gets the total number of processes in the MPI program.
+Data Distribution:
+int unitsize = 3;: Defines the number of elements each process handles.
+int root = 0;: Defines the rank of the root process.
+int send_buffer[]: Array to hold data to be sent.
+int receive_buffer[]: Array to hold received data.
+int new_receive_buffer[]: Array to store aggregated results.
+User Input (Root Process):
+If the current process is the root process (rank 0), it prompts the user to enter elements and stores them in send_buffer.
+Scatter Operation:
+MPI.COMM_WORLD.Scatter(): Distributes data from the root process to all processes using scatter operation.
+Calculation (Non-Root Processes):
+Non-root processes calculate the sum of their received elements and store it in the first index of receive_buffer.
+Print Intermediate Sums:
+Each process prints its intermediate sum.
+Gather Operation:
+MPI.COMM_WORLD.Gather(): Gathers data from all processes to the root process using gather operation.
+Aggregate Output:
+The root process aggregates the received sums from all processes and prints the final sum.
+Finalization:
+MPI.Finalize(): Finalizes MPI at the end of the program.
+
+
+
+
+=========================================================
+
+1. What is use of MPI?
+2. Application in which we are using MPI?
+3. Why we are providing rank to process in MPI.
+4. Explain MPI operations.
+5. Explain Different data types of MPI.
+6. Draw MPI architecture.
+7. What is MPI_ABORT?
+8. What is MPI_FINALIZE
+9. What is difference MPI_ABORT and MPI_FINALIZE
+
+
+1. **Use of MPI**: MPI (Message Passing Interface) is used for parallel and distributed computing, allowing multiple processes to communicate and collaborate on a single task. It enables high-performance computing by providing a standardized interface for message passing between processes running on different nodes of a parallel computing system.
+
+2. **Applications of MPI**: MPI is commonly used in scientific computing, numerical simulations, computational fluid dynamics, weather modeling, molecular dynamics, and other parallel computing applications where large-scale processing and communication between processes are required.
+
+3. **Purpose of Providing Rank in MPI**: In MPI, each process is assigned a unique identifier called rank. Ranks are used to identify and differentiate between processes within a communicator. This allows processes to communicate with each other, perform collective operations, and coordinate their activities effectively in parallel and distributed computing environments.
+
+4. **MPI Operations**: MPI provides various communication and collective operations for processes to exchange data, synchronize execution, and perform collective computations. Some commonly used MPI operations include point-to-point communication (send, receive), collective communication (broadcast, scatter, gather, reduce), synchronization (barrier), and process management (abort, finalize).
+
+5. **Different Data Types in MPI**: MPI supports various data types for communication, including basic data types (int, float, double, char), derived data types (struct, array, vector), and user-defined data types. These data types facilitate efficient and flexible communication of complex data structures between processes in parallel and distributed computing applications.
+
+6. **MPI Architecture**: MPI follows a distributed memory architecture, where multiple processes run independently on different nodes of a parallel computing system. Processes communicate with each other via message passing through MPI library routines, allowing them to exchange data and coordinate their activities to perform parallel computations.
+
+7. **MPI_ABORT**: MPI_ABORT is a routine used to terminate all MPI processes in a communicator abruptly. It is typically called to abort the entire MPI job when a critical error or exceptional condition occurs, such as unrecoverable errors or violations of application-specific constraints.
+
+8. **MPI_FINALIZE**: MPI_FINALIZE is a routine used to finalize the MPI environment and clean up resources allocated by MPI_Init. It is called at the end of an MPI program to ensure proper termination of MPI processes and release system resources before exiting.
+
+9. **Difference between MPI_ABORT and MPI_FINALIZE**:
+   - MPI_ABORT is used to terminate all MPI processes abruptly due to critical errors or exceptional conditions, while MPI_FINALIZE is used to gracefully finalize the MPI environment and clean up resources at the end of an MPI program.
+   - MPI_ABORT results in immediate termination of all processes without cleanup, while MPI_FINALIZE ensures proper cleanup and release of resources before exiting the MPI program.

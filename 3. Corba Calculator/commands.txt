@@ -1,0 +1,81 @@
+Assignment 3:
+
+Corba String
+
+Terminal 1:
+idlj -fall ReverseModule.idl
+javac *.java ReverseModule/*.java
+orbd -ORBInitialPort 1056
+java ReverseServer -ORBInitialPort 1056
+
+Terminal 2:
+java ReverseClient -ORBInitialPort 1056 -ORBInitialHost localhost
+
+==================================================
+Corba Calculator
+
+Terminal 1:
+idlj -fall CalculatorModule.idl
+javac *.java CalculatorModule/*.java
+orbd -ORBInitialPort 1056
+java CalculatorServer -ORBInitialPort 1056
+
+Terminal 2:
+java CalculatorClient -ORBInitialPort 1056 -ORBInitialHost localhost
+
+=================================================
+
+
+
+1. What is CORBA?
+2. How CORBA works?
+3. Does it synchronous/Asynchronous application?
+4. What is ORB?
+5. What is IDL interface?
+6. What is Object Request Broker Daemon (ORBD).
+7. What is middleware.
+8. List the examples of middleware.
+9. List the use of middleware.
+10. List the applications of CORBA.\
+
+
+
+1. **CORBA (Common Object Request Broker Architecture)**: CORBA is a standard defined by the Object Management Group (OMG) for creating distributed object-oriented systems. It enables objects written in different programming languages and running on different platforms to communicate and interoperate seamlessly over a network.
+
+2. **How CORBA works**: 
+   - CORBA relies on an Object Request Broker (ORB) to facilitate communication between distributed objects.
+   - Client applications make requests to the ORB for remote object invocations.
+   - The ORB locates the requested object, marshals the method invocation parameters, and sends them over the network to the server.
+   - The server's ORB receives the request, unmarshals the parameters, and invokes the corresponding method on the server object.
+   - After processing, the server returns the result (if any) to the client through the same process in reverse.
+
+3. **Synchronous/Asynchronous Application**: CORBA supports both synchronous and asynchronous communication. Synchronous communication blocks the client until a response is received from the server, while asynchronous communication allows the client to continue processing without waiting for a response.
+
+4. **ORB (Object Request Broker)**: The ORB is a middleware component responsible for managing communication between distributed objects. It handles locating objects, marshaling and unmarshaling parameters, and ensuring reliable message delivery.
+
+5. **IDL (Interface Definition Language) Interface**: IDL is used to define the interfaces of CORBA objects. It specifies the methods and data structures that can be accessed remotely by clients. IDL interfaces serve as a contract between the client and server, ensuring interoperability across different languages and platforms.
+
+6. **Object Request Broker Daemon (ORBD)**: ORBD is a daemon process that provides additional services to CORBA applications, such as object activation, naming, and transient object storage. It acts as a centralized registry for locating and managing CORBA objects in the network.
+
+7. **Middleware**: Middleware is software that provides services and capabilities to facilitate communication and integration between different applications, systems, and networks. It abstracts the underlying complexity of distributed computing and enables interoperability between heterogeneous environments.
+
+8. **Examples of Middleware**:
+   - CORBA (Common Object Request Broker Architecture)
+   - RPC (Remote Procedure Call)
+   - Message-Oriented Middleware (MOM)
+   - Distributed Object Middleware (such as DCOM, Java RMI)
+   - Web Services (SOAP, REST)
+
+9. **Use of Middleware**:
+   - Integrating disparate systems and applications
+   - Facilitating communication between distributed components
+   - Enabling interoperability across different platforms and languages
+   - Providing services such as security, transaction management, and scalability
+   - Simplifying development and maintenance of distributed systems
+
+10. **Applications of CORBA**:
+    - Telecommunications: CORBA is used in telecommunications networks for managing and controlling network elements, such as switches, routers, and base stations.
+    - Finance: CORBA is used in banking and financial systems for transaction processing, risk management, and trading applications.
+    - Healthcare: CORBA is used in healthcare systems for managing patient records, medical imaging, and telemedicine applications.
+    - Manufacturing: CORBA is used in manufacturing systems for process automation, supply chain management, and industrial control applications.
+    - Enterprise Systems: CORBA is used in large-scale enterprise systems for integrating legacy applications, customer relationship management (CRM), and enterprise resource planning (ERP).

@@ -1,0 +1,36 @@
+Assignment 1:
+
+Terminal 1:
+javac \*.java
+java MyServer
+
+Terminal 2:
+java MyClient
+
+
+
+
+1. What is interprocess communication?
+2. What is socket?
+3. Difference between TCP and UDP socket communication?
+4. What is shared memory programming?
+5. What is port? State application of port.
+
+
+
+1. **Interprocess Communication (IPC)**: IPC is the mechanism through which processes can communicate and synchronize with each other on the same or different computers. It enables data exchange, coordination, and synchronization between processes.
+
+2. **Socket**: A socket is an endpoint for communication between two machines or processes over a network. It allows bidirectional data flow and enables processes to communicate with each other by sending and receiving data.
+
+3. **Difference between TCP and UDP Socket Communication**:
+   - **TCP (Transmission Control Protocol)**: Provides reliable, connection-oriented communication. It ensures that data packets are delivered in the correct order and without errors. TCP sockets are used for applications where data integrity and reliability are crucial, such as web browsing, email, and file transfer.
+   - **UDP (User Datagram Protocol)**: Provides unreliable, connectionless communication. It does not guarantee packet delivery, ordering, or error-checking. UDP sockets are used for applications where low overhead and high speed are more important than reliability, such as online gaming, video streaming, and VoIP.
+
+4. **Shared Memory Programming**: Shared memory programming is a parallel programming paradigm in which multiple processes or threads share a common region of memory. This shared memory allows processes to communicate and synchronize with each other by reading from and writing to the shared memory region. It provides a high-performance mechanism for interprocess communication but requires careful synchronization to avoid race conditions and ensure data consistency.
+
+5. **Port**: A port is a logical construct that identifies a specific endpoint or communication channel in a network. Ports are used to differentiate between different types of network traffic and enable multiple services to run on the same device simultaneously. Applications use ports to send and receive data over a network. For example:
+   - Port 80: Used for HTTP web traffic.
+   - Port 443: Used for HTTPS secure web traffic.
+   - Port 22: Used for SSH (Secure Shell) for secure remote access.
+   - Port 25: Used for SMTP (Simple Mail Transfer Protocol) for email transmission.
+   - Port 21: Used for FTP (File Transfer Protocol) for file transfer.

@@ -1,0 +1,8 @@
+module ReverseModule
+{
+interface Reverse
+{
+	string reverse_string(in string str);
+	string concat_strings(in string str1, in string str2);
+};
+};

@@ -1,0 +1,45 @@
+
+Terminal 1:
+python client.py
+
+Terminal 2:
+python server.py
+
+
+
+======================
+
+
+
+
+
+
+1. What is difference between logical clock and physical clock?
+2. Why is it necessary to synchronize the clocks in distributed real time system?
+3. How the principle of Berkeley algorithm is used to synchronize time in distributed
+system?
+4. What are other algorithms for clock synchronization in DS?
+
+
+
+0. **Berkeley Algorithm**: The Berkeley algorithm is a clock synchronization algorithm used in distributed systems to synchronize the clocks of multiple computers or nodes in the network. It was introduced by Butler W. Lampson in 1978. The algorithm calculates the average clock time among all nodes and adjusts each node's clock to the average time, thereby achieving synchronization.
+
+1. **Difference between Logical Clock and Physical Clock**:
+   - **Physical Clock**: Physical clocks are actual hardware devices or software components that measure real-world time using oscillators, crystals, or other timekeeping mechanisms. They provide accurate time information but may drift over time due to factors like temperature variations.
+   - **Logical Clock**: Logical clocks are conceptual constructs used in distributed systems to order events based on causality rather than real-world time. Logical clocks do not rely on physical time and are used to establish a partial ordering of events across distributed nodes. Examples include Lamport clocks and vector clocks.
+
+2. **Necessity of Clock Synchronization in Distributed Real-Time Systems**:
+   - In distributed real-time systems, coordination and synchronization among distributed nodes are crucial for ensuring consistency, reliability, and predictability of system behavior.
+   - Clock synchronization facilitates coordination of time-sensitive tasks and events across distributed nodes.
+   - It helps in maintaining temporal consistency and ordering of events, which is essential for correct operation of distributed algorithms and protocols.
+   - Synchronized clocks enable accurate timestamping of events, logging, debugging, and analysis of system behavior.
+
+3. **Principle of Berkeley Algorithm for Time Synchronization**:
+   - The Berkeley algorithm employs a master-slave architecture, where one node (the master) collects clock information from all other nodes (slaves) and computes the average time.
+   - The master then sends the average time back to all slaves, which adjust their clocks accordingly to match the average time.
+   - This approach compensates for clock drift and discrepancies among nodes, resulting in synchronized clocks across the distributed system.
+
+4. **Other Clock Synchronization Algorithms in Distributed Systems**:
+   - **NTP (Network Time Protocol)**: NTP is a widely used protocol for clock synchronization in computer networks. It employs a hierarchical structure of time servers and uses synchronization algorithms to achieve accurate timekeeping.
+   - **GPS (Global Positioning System)**: GPS receivers can synchronize clocks using signals from GPS satellites, providing highly accurate time reference for distributed systems.
+   - **Precision Time Protocol (PTP)**: PTP is a protocol used for clock synchronization in industrial automation and telecommunications networks. It provides sub-microsecond accuracy by synchronizing clocks over Ethernet networks.
